@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ember &amp; Bean — Every Bean Has a Story</title>
+  <meta name="description" content="Ember &amp; Bean is a small-batch coffee roastery and bar in Portland. Follow a single Huila lot from farm to roast to your cup.">
+  <meta name="theme-color" content="#1B120C">
+  <meta name="color-scheme" content="dark light">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ember &amp; Bean — Every Bean Has a Story">
+  <meta property="og:description" content="A scroll-driven coffee story from a hillside in Huila to your morning ritual.">
+  <meta property="og:image" content="assets/img/hero-latte.jpg">
+
+  <link rel="icon" href="assets/svg/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/img/hero-latte.webp" type="image/webp" fetchpriority="high">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Progressive enhancement guard: if the scripts cannot load (blocked or
+       failed requests), content is revealed after a short wait instead of
+       remaining hidden. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.remove("no-js");
+      root.classList.add("js");
+      window.setTimeout(function () {
+        if (!window.__emberReady) root.classList.remove("js");
+      }, 3000);
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <canvas id="bean-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#hero" aria-label="Ember &amp; Bean — home">
+        <svg class="brand__mark" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-bean"></use></svg>
+        <span class="brand__name">Ember <em>&amp;</em> Bean</span>
+      </a>
+
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
+        <ul class="site-nav__list" role="list">
+          <li><a class="site-nav__link" href="#story" data-nav-link>Story</a></li>
+          <li><a class="site-nav__link" href="#process" data-nav-link>Process</a></li>
+          <li><a class="site-nav__link" href="#menu" data-nav-link>Menu</a></li>
+          <li><a class="site-nav__link" href="#gallery" data-nav-link>Gallery</a></li>
+          <li><a class="site-nav__link" href="#contact" data-nav-link>Contact</a></li>
+        </ul>
+        <a class="btn btn--primary nav-cta" href="#contact">
+          Visit us
+          <svg class="btn__arrow" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-up-right"></use></svg>
+        </a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="nav-toggle__box" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================================================================
+         1. HERO — bean mode: fall
+         ================================================================ -->
+    <section class="hero section section--dark" id="hero" data-bean-mode="fall" aria-labelledby="hero-title">
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero__content" data-reveal-group>
+          <p class="eyebrow" data-reveal>Single origin &middot; Small batch</p>
+          <h1 class="hero__title" id="hero-title" data-reveal>Every <em>Bean</em><br> Has a Story</h1>
+          <p class="hero__sub" data-reveal>
+            One lot of Huila coffee, traced from a shaded hillside to the
+            roastery on Kiln Lane — and finally to the cup in your hands.
+          </p>
+          <div class="hero__actions" data-reveal>
+            <a class="btn btn--primary" href="#story">
+              Follow the bean
+              <svg class="btn__arrow" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg>
+            </a>
+            <a class="btn btn--ghost" href="#menu">Explore the menu</a>
+          </div>
+          <dl class="hero__proof" data-reveal>
+            <div>
+              <dt>1,780m</dt>
+              <dd>Andean growing altitude</dd>
+            </div>
+            <div>
+              <dt>48h</dt>
+              <dd>From roast to first pour</dd>
+            </div>
+            <div>
+              <dt>06</dt>
+              <dd>Signature drinks on bar</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero__visual" data-reveal="right">
+          <div class="hero__ring" aria-hidden="true"></div>
+
+          <figure class="hero__cup" id="hero-cup">
+            <picture>
+              <source srcset="assets/img/hero-latte.webp" type="image/webp">
+              <img src="assets/img/hero-latte.jpg" alt="A cappuccino with rosetta latte art in a black cup on a dark cafe table" width="1200" height="1798" fetchpriority="high" decoding="async">
+            </picture>
+          </figure>
+
+          <svg class="hero__steam" viewBox="0 0 120 150" aria-hidden="true" focusable="false">
+            <path d="M38 138c-14-18 10-26 0-44s8-24 4-38"/>
+            <path d="M62 142c-10-20 12-28 2-48s10-26 6-40"/>
+            <path d="M86 136c-12-16 8-24 0-40s6-22 2-34"/>
+          </svg>
+
+          <p class="hero__tag"><span aria-hidden="true"></span>Huila &middot; Colombia</p>
+
+          <div class="hero__badge">
+            <strong>Roasted this week</strong>
+            <span>Batch № 042 &middot; 14&nbsp;kg</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="hero__cue" href="#story">
+        Scroll to follow
+        <span class="hero__cue-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ================================================================
+         2. STORY — bean mode: drift
+         ================================================================ -->
+    <section class="story section section--light" id="story" data-bean-mode="drift" aria-labelledby="story-title">
+      <div class="container">
+        <div class="story__grid">
+          <div class="story__copy" data-reveal-group>
+            <p class="eyebrow" data-reveal>01 — Origin</p>
+            <h2 id="story-title" data-reveal>Grown slowly,<br> picked by hand.</h2>
+
+            <p data-reveal>
+              Our house lot comes from <strong>Finca La Esperanza</strong>, a
+              four-hectare farm tucked into the hills above Pitalito. The
+              Caturra trees grow under shade at 1,780 metres, where cool nights
+              stretch the ripening season and pull sugar into every cherry.
+            </p>
+            <p data-reveal>
+              Don Elías and his family pick in three passes, selecting only
+              deep-red fruit. The lot is fermented for 72 hours, washed in
+              spring water, then dried slowly on raised beds — a process that
+              gives the cup its fig sweetness and long, tea-like finish.
+            </p>
+
+            <blockquote class="story__quote" data-reveal>
+              “We don’t rush the cherry. The coffee already knows what it wants
+              to become.”
+              <footer>Don Elías &middot; Finca La Esperanza</footer>
+            </blockquote>
+
+            <div class="story__signature" data-reveal>
+              <span class="story__signature-mark" aria-hidden="true">E&amp;B</span>
+              <p>
+                <strong>Roasted by Mara Quinn</strong>
+                Head roaster &middot; batch № 042
+              </p>
+            </div>
+          </div>
+
+          <figure class="story__figure" data-reveal="right">
+            <div class="story__frame">
+              <div class="story__media">
+                <picture>
+                  <source srcset="assets/img/story-roastery.webp" type="image/webp">
+                  <img src="assets/img/story-roastery.jpg" alt="Freshly roasted coffee beans tumbling inside the drum of a roaster" width="1200" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <figcaption class="story__caption">
+                <span>The drum room, 6:40 am</span>
+                <span>Batch № 042</span>
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="story__facts" data-reveal-group>
+          <div data-reveal>
+            <dt>1,780m</dt>
+            <dd>Shaded growing altitude at Finca La Esperanza</dd>
+          </div>
+          <div data-reveal>
+            <dt>72h</dt>
+            <dd>Anaerobic-leaning washed fermentation</dd>
+          </div>
+          <div data-reveal>
+            <dt>12kg</dt>
+            <dd>Micro-lot size, roasted in two weekly batches</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         3. PROCESS — bean mode: path
+         ================================================================ -->
+    <section class="process section section--roast" id="process" data-bean-mode="path" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>02 — Process</p>
+            <h2 class="section-head__title" id="process-title" data-reveal>Three hands,<br> one continuous thread.</h2>
+          </div>
+          <div class="section-head__aside" data-reveal>
+            <p>
+              Nothing about this cup is accidental. Follow the same bean
+              through the farm, the drum and the brew bar — the line below is
+              the route it takes.
+            </p>
+          </div>
+        </div>
+
+        <div class="process__layout">
+          <div class="process__rail" aria-hidden="true">
+            <svg class="process__line" viewBox="0 0 120 900" preserveAspectRatio="none" focusable="false">
+              <path class="process__line-track" d="M60 24C104 150 16 268 58 398S108 610 54 742 84 856 62 878"/>
+              <path class="process__line-fill" id="process-path" d="M60 24C104 150 16 268 58 398S108 610 54 742 84 856 62 878"/>
+            </svg>
+            <span class="process__node"></span>
+            <span class="process__node"></span>
+            <span class="process__node"></span>
+          </div>
+
+          <div class="process__steps">
+            <article class="process__step" data-reveal-group>
+              <p class="process__step-index" data-reveal>01</p>
+              <div class="process__step-body" data-reveal>
+                <h3>Farm</h3>
+                <p>
+                  Cherries are picked in three passes, floated, then fermented
+                  for 72 hours in small tanks. Raised-bed drying takes eleven
+                  days and a lot of patience.
+                </p>
+                <ul class="process__tags" role="list">
+                  <li class="process__tag">Hand-picked</li>
+                  <li class="process__tag">72h ferment</li>
+                  <li class="process__tag">Raised bed</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="process__step" data-reveal-group>
+              <p class="process__step-index" data-reveal>02</p>
+              <div class="process__step-body" data-reveal>
+                <h3>Roast</h3>
+                <p>
+                  A 12-kilogram drum, a short development phase and a profile
+                  built for filter and espresso alike. First crack at 9:20;
+                  dropped at 11:05, every batch logged by hand.
+                </p>
+                <ul class="process__tags" role="list">
+                  <li class="process__tag">12kg drum</li>
+                  <li class="process__tag">11:05 drop</li>
+                  <li class="process__tag">Omni profile</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="process__step" data-reveal-group>
+              <p class="process__step-index" data-reveal>03</p>
+              <div class="process__step-body" data-reveal>
+                <h3>Brew</h3>
+                <p>
+                  Rest for 48 hours, then dial in. 18 grams in, 36 out, 28
+                  seconds for espresso; a 1:16 V60 for the slower mornings.
+                  Every cup is weighed.
+                </p>
+                <ul class="process__tags" role="list">
+                  <li class="process__tag">18g / 36g</li>
+                  <li class="process__tag">28s espresso</li>
+                  <li class="process__tag">1:16 V60</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         4. MENU — bean mode: orbit
+         ================================================================ -->
+    <section class="menu section section--light" id="menu" data-bean-mode="orbit" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="section-head" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>03 — The bar</p>
+            <h2 class="section-head__title" id="menu-title" data-reveal>Six ways<br> to slow down.</h2>
+          </div>
+          <div class="section-head__aside" data-reveal>
+            <p>
+              One house espresso, one rotating single origin, and a pastry case
+              that never quite survives the morning. Oat milk is always free.
+            </p>
+          </div>
+        </div>
+
+        <div class="menu__grid" id="menu-grid" data-reveal-group>
+          <article class="menu-card" data-reveal>
+            <div class="menu-card__top">
+              <span class="menu-card__icon" aria-hidden="true">
+                <svg focusable="false"><use href="assets/svg/icons.svg#i-espresso"></use></svg>
+              </span>
+              <span class="menu-card__num" aria-hidden="true">01</span>
+            </div>
+            <div class="menu-card__body">
+              <h3>Espresso</h3>
+              <p class="menu-card__note">Cocoa nib, dried fig and a long caramel finish. Served double.</p>
+            </div>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$3.50</span>
+              <span class="menu-card__label">Double ristretto</span>
+            </div>
+          </article>
+
+          <article class="menu-card" data-reveal>
+            <div class="menu-card__top">
+              <span class="menu-card__icon" aria-hidden="true">
+                <svg focusable="false"><use href="assets/svg/icons.svg#i-cappuccino"></use></svg>
+              </span>
+              <span class="menu-card__num" aria-hidden="true">02</span>
+            </div>
+            <div class="menu-card__body">
+              <h3>Cappuccino</h3>
+              <p class="menu-card__note">Velvet foam, toasted hazelnut and brown sugar. A 5oz cup.</p>
+            </div>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$4.25</span>
+              <span class="menu-card__label">Classic ratio</span>
+            </div>
+          </article>
+
+          <article class="menu-card" data-reveal>
+            <div class="menu-card__top">
+              <span class="menu-card__icon" aria-hidden="true">
+                <svg focusable="false"><use href="assets/svg/icons.svg#i-latte"></use></svg>
+              </span>
+              <span class="menu-card__num" aria-hidden="true">03</span>
+            </div>
+            <div class="menu-card__body">
+              <h3>Latte</h3>
+              <p class="menu-card__note">Steamed milk, honeycomb and a soft citrus lift. Hot or iced.</p>
+            </div>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$4.75</span>
+              <span class="menu-card__label">House favourite</span>
+            </div>
+          </article>
+
+          <article class="menu-card" data-reveal>
+            <div class="menu-card__top">
+              <span class="menu-card__icon" aria-hidden="true">
+                <svg focusable="false"><use href="assets/svg/icons.svg#i-coldbrew"></use></svg>
+              </span>
+              <span class="menu-card__num" aria-hidden="true">04</span>
+            </div>
+            <div class="menu-card__body">
+              <h3>Cold Brew</h3>
+              <p class="menu-card__note">Eighteen-hour steep. Black cherry, cacao and a clean finish.</p>
+            </div>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$4.50</span>
+              <span class="menu-card__label">On nitro</span>
+            </div>
+          </article>
+
+          <article class="menu-card" data-reveal>
+            <div class="menu-card__top">
+              <span class="menu-card__icon" aria-hidden="true">
+                <svg focusable="false"><use href="assets/svg/icons.svg#i-pourover"></use></svg>
+              </span>
+              <span class="menu-card__num" aria-hidden="true">05</span>
+            </div>
+            <div class="menu-card__body">
+              <h3>Pour Over</h3>
+              <p class="menu-card__note">V60, Huila lot. Jasmine, white peach and cane sugar.</p>
+            </div>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$5.25</span>
+              <span class="menu-card__label">Brewed to order</span>
+            </div>
+          </article>
+
+          <article class="menu-card" data-reveal>
+            <div class="menu-card__top">
+              <span class="menu-card__icon" aria-hidden="true">
+                <svg focusable="false"><use href="assets/svg/icons.svg#i-mocha"></use></svg>
+              </span>
+              <span class="menu-card__num" aria-hidden="true">06</span>
+            </div>
+            <div class="menu-card__body">
+              <h3>Mocha</h3>
+              <p class="menu-card__note">70% dark chocolate, espresso and a whisper of sea salt.</p>
+            </div>
+            <div class="menu-card__foot">
+              <span class="menu-card__price">$5.00</span>
+              <span class="menu-card__label">Not too sweet</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="menu__footnote" data-reveal>
+          <p>All espresso drinks are served double unless you ask otherwise. Decaf available daily.</p>
+          <a class="link-arrow" href="#contact">
+            Ask about the rotating origin
+            <svg aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         5. GALLERY — bean mode: sparse
+         ================================================================ -->
+    <section class="gallery section section--dark" id="gallery" data-bean-mode="sparse" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>04 — The room</p>
+            <h2 class="section-head__title" id="gallery-title" data-reveal>A quiet corner<br> of Kiln Lane.</h2>
+          </div>
+          <div class="section-head__aside" data-reveal>
+            <p>
+              Morning light, a long oak counter and the low hum of the drum
+              roaster. Come for the coffee; stay because nobody rushes you.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery__grid" data-reveal-group>
+          <figure class="gallery__item" data-reveal data-parallax="-0.05">
+            <div class="gallery__media">
+              <picture>
+                <source srcset="assets/img/gallery-beans.webp" type="image/webp">
+                <img src="assets/img/gallery-beans.jpg" alt="A dense mound of glossy roasted coffee beans against a warm tan background" width="900" height="600" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="gallery__caption">
+              <strong>Fresh off the drum</strong>
+              <span>Batch № 042</span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__item" data-reveal data-parallax="0.04">
+            <div class="gallery__media">
+              <picture>
+                <source srcset="assets/img/gallery-barista.webp" type="image/webp">
+                <img src="assets/img/gallery-barista.jpg" alt="Barista in a dark apron holding two cappuccinos with latte art" width="900" height="600" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="gallery__caption">
+              <strong>Two for the window</strong>
+              <span>Service, 8:15 am</span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__item" data-reveal data-parallax="-0.03">
+            <div class="gallery__media">
+              <picture>
+                <source srcset="assets/img/gallery-latte-art.webp" type="image/webp">
+                <img src="assets/img/gallery-latte-art.jpg" alt="Milk being poured into a cup to form a rosetta latte art pattern" width="900" height="601" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="gallery__caption">
+              <strong>The pour</strong>
+              <span>Six ounces of patience</span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__item" data-reveal data-parallax="0.06">
+            <div class="gallery__media">
+              <picture>
+                <source srcset="assets/img/gallery-cafe.webp" type="image/webp">
+                <img src="assets/img/gallery-cafe.jpg" alt="Sunlit specialty coffee bar with plants, a wood counter and a yellow espresso machine" width="1200" height="595" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="gallery__caption">
+              <strong>The long counter</strong>
+              <span>14 Kiln Lane</span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__item" data-reveal data-parallax="-0.045">
+            <div class="gallery__media">
+              <picture>
+                <source srcset="assets/img/gallery-table.webp" type="image/webp">
+                <img src="assets/img/gallery-table.jpg" alt="A flat white in a white cup on a pale wooden table" width="900" height="600" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="gallery__caption">
+              <strong>The corner table</strong>
+              <span>Afternoon light</span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__item" data-reveal data-parallax="0.035">
+            <div class="gallery__media">
+              <picture>
+                <source srcset="assets/img/gallery-spread.webp" type="image/webp">
+                <img src="assets/img/gallery-spread.jpg" alt="Overhead view of a shared cafe table with coffee, pastries, books and hands" width="1200" height="800" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <figcaption class="gallery__caption">
+              <strong>Saturday, shared</strong>
+              <span>Nobody in a hurry</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="gallery__note" data-reveal>
+          <span>Photography from our own mornings at the bar.</span>
+          <a class="link-arrow" href="#contact">
+            Find the door
+            <svg aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-up-right"></use></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         6. TESTIMONIALS — bean mode: sparse
+         ================================================================ -->
+    <section class="testimonials section section--light" id="testimonials" data-bean-mode="sparse" data-nav-section="gallery" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal-group>
+          <p class="eyebrow" data-reveal>05 — Word of mouth</p>
+          <h2 class="section-head__title" id="testimonials-title" data-reveal>Kind words,<br> strong coffee.</h2>
+        </div>
+
+        <div class="testimonials__shell" data-reveal>
+          <span class="testimonials__mark" aria-hidden="true">&ldquo;</span>
+
+          <div class="slider" data-slider role="region" aria-roledescription="carousel" aria-label="Guest testimonials">
+            <div class="slider__viewport" tabindex="0" aria-describedby="slider-hint">
+              <div class="slider__track" data-slider-track>
+                <article class="slider__slide" aria-roledescription="slide" aria-label="1 of 4">
+                  <div class="slider__stars" aria-hidden="true">
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                  </div>
+                  <p class="visually-hidden">Rated 5 out of 5.</p>
+                  <blockquote class="slider__quote">
+                    “The pour over tasted like the orchard it came from. I’ve
+                    never had a coffee tell me so much about a place.”
+                  </blockquote>
+                  <footer class="slider__person">
+                    <span class="slider__avatar" aria-hidden="true">MO</span>
+                    <div>
+                      <strong>Maya Osei</strong>
+                      <span>Regular since 2021</span>
+                    </div>
+                  </footer>
+                </article>
+
+                <article class="slider__slide" aria-roledescription="slide" aria-label="2 of 4">
+                  <div class="slider__stars" aria-hidden="true">
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                  </div>
+                  <p class="visually-hidden">Rated 5 out of 5.</p>
+                  <blockquote class="slider__quote">
+                    “They roast in the back, pour in the front, and remember
+                    your order. It’s the only third place I have left.”
+                  </blockquote>
+                  <footer class="slider__person">
+                    <span class="slider__avatar" aria-hidden="true">DR</span>
+                    <div>
+                      <strong>Daniel Ruiz</strong>
+                      <span>Architect, two blocks away</span>
+                    </div>
+                  </footer>
+                </article>
+
+                <article class="slider__slide" aria-roledescription="slide" aria-label="3 of 4">
+                  <div class="slider__stars" aria-hidden="true">
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                  </div>
+                  <p class="visually-hidden">Rated 5 out of 5.</p>
+                  <blockquote class="slider__quote">
+                    “I came for the cold brew and stayed for the conversation.
+                    The team treats every cup like a small ceremony.”
+                  </blockquote>
+                  <footer class="slider__person">
+                    <span class="slider__avatar" aria-hidden="true">PN</span>
+                    <div>
+                      <strong>Priya Nair</strong>
+                      <span>Food writer</span>
+                    </div>
+                  </footer>
+                </article>
+
+                <article class="slider__slide" aria-roledescription="slide" aria-label="4 of 4">
+                  <div class="slider__stars" aria-hidden="true">
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                    <svg focusable="false"><use href="assets/svg/icons.svg#i-star"></use></svg>
+                  </div>
+                  <p class="visually-hidden">Rated 5 out of 5.</p>
+                  <blockquote class="slider__quote">
+                    “The mocha is ridiculous — dark, salty, not too sweet. My
+                    Friday ritual lives here now.”
+                  </blockquote>
+                  <footer class="slider__person">
+                    <span class="slider__avatar" aria-hidden="true">TB</span>
+                    <div>
+                      <strong>Tomás Berg</strong>
+                      <span>Barista, crosstown</span>
+                    </div>
+                  </footer>
+                </article>
+              </div>
+            </div>
+
+            <div class="slider__controls">
+              <button class="slider__arrow" type="button" data-slider-prev aria-label="Previous testimonial">
+                <svg aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-left"></use></svg>
+              </button>
+
+              <div class="slider__dots" role="group" aria-label="Choose a testimonial" data-slider-dots></div>
+
+              <span class="slider__count" aria-hidden="true" data-slider-count>01 / 04</span>
+
+              <button class="slider__arrow" type="button" data-slider-next aria-label="Next testimonial">
+                <svg aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg>
+              </button>
+            </div>
+
+            <p class="visually-hidden" id="slider-hint">Use the left and right arrow keys to move between testimonials.</p>
+            <p class="visually-hidden" aria-live="polite" data-slider-status></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         7. CONTACT — bean mode: settle
+         ================================================================ -->
+    <section class="contact section section--roast" id="contact" data-bean-mode="settle" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>06 — Visit</p>
+            <h2 class="section-head__title" id="contact-title" data-reveal>Come sit<br> with us.</h2>
+          </div>
+          <div class="section-head__aside" data-reveal>
+            <p>
+              We are two turns off the river path, behind the old kiln. Walk in,
+              order at the bar, and take the long way home.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__form" data-reveal>
+            <div class="contact__form-head">
+              <h3>Send a note</h3>
+              <p>Catering, wholesale, lost umbrellas — this reaches a human.</p>
+            </div>
+
+            <form id="contact-form" novalidate>
+              <div class="form__grid">
+                <div class="form__field">
+                  <label class="form__label" for="name">Name <span class="form__required" aria-hidden="true">*</span></label>
+                  <input class="form__input" id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required aria-describedby="name-error">
+                  <p class="form__error" id="name-error" data-error-for="name"></p>
+                </div>
+
+                <div class="form__field">
+                  <label class="form__label" for="email">Email <span class="form__required" aria-hidden="true">*</span></label>
+                  <input class="form__input" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="email-error">
+                  <p class="form__error" id="email-error" data-error-for="email"></p>
+                </div>
+
+                <div class="form__field form__field--full">
+                  <label class="form__label" for="brew">Favourite brew <span>(optional)</span></label>
+                  <select class="form__select" id="brew" name="brew">
+                    <option value="">Choose one — or don’t</option>
+                    <option value="espresso">Espresso</option>
+                    <option value="cappuccino">Cappuccino</option>
+                    <option value="latte">Latte</option>
+                    <option value="cold-brew">Cold Brew</option>
+                    <option value="pour-over">Pour Over</option>
+                    <option value="mocha">Mocha</option>
+                  </select>
+                </div>
+
+                <div class="form__field form__field--full">
+                  <label class="form__label" for="message">Message <span class="form__required" aria-hidden="true">*</span></label>
+                  <textarea class="form__textarea" id="message" name="message" rows="4" placeholder="What’s on your mind?" required aria-describedby="message-error"></textarea>
+                  <p class="form__error" id="message-error" data-error-for="message"></p>
+                </div>
+
+                <div class="form__field form__field--full">
+                  <label class="form__consent form__checkbox-label" for="consent">
+                    <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error">
+                    <span>I agree to be contacted about this enquiry. <span class="form__required" aria-hidden="true">*</span></span>
+                  </label>
+                  <p class="form__error" id="consent-error" data-error-for="consent"></p>
+                </div>
+              </div>
+
+              <div class="form__actions">
+                <button class="btn btn--primary form__submit" type="submit" data-submit>
+                  <span class="form__spinner" aria-hidden="true"></span>
+                  <span data-submit-label>Send note</span>
+                  <svg class="btn__arrow" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-up-right"></use></svg>
+                </button>
+                <p class="form__required">* Required fields</p>
+              </div>
+
+              <p class="form__status" id="form-status" role="status" tabindex="-1" data-form-status></p>
+            </form>
+          </div>
+
+          <div class="contact__side" data-reveal-group>
+            <div class="contact__info" data-reveal>
+              <div class="contact__info-block">
+                <h3>Find us</h3>
+                <address>
+                  14 Kiln Lane<br>
+                  Portland, OR 97210
+                </address>
+              </div>
+
+              <div class="contact__info-block">
+                <h3>Hours</h3>
+                <dl class="contact__hours">
+                  <div><dt>Mon — Fri</dt><dd>7:00 — 17:00</dd></div>
+                  <div><dt>Saturday</dt><dd>8:00 — 17:00</dd></div>
+                  <div><dt>Sunday</dt><dd>8:00 — 14:00</dd></div>
+                </dl>
+              </div>
+
+              <div class="contact__info-block">
+                <h3>Say hello</h3>
+                <p>
+                  <a href="tel:+15035550142">+1 (503) 555-0142</a><br>
+                  <a href="mailto:hello@emberandbean.example">hello@emberandbean.example</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="map" data-reveal>
+              <svg viewBox="0 0 640 360" role="img" aria-label="Stylised map showing Ember and Bean at 14 Kiln Lane, near the river path" focusable="false">
+                <rect width="640" height="360" fill="#23160f"/>
+                <g fill="#2c1b12">
+                  <rect x="24" y="24" width="152" height="112" rx="4"/>
+                  <rect x="200" y="24" width="120" height="72" rx="4"/>
+                  <rect x="344" y="24" width="126" height="112" rx="4"/>
+                  <rect x="494" y="24" width="122" height="72" rx="4"/>
+                  <rect x="24" y="168" width="104" height="168" rx="4"/>
+                  <rect x="152" y="168" width="168" height="72" rx="4"/>
+                  <rect x="344" y="168" width="126" height="168" rx="4"/>
+                  <rect x="494" y="168" width="122" height="104" rx="4"/>
+                </g>
+                <g fill="#1f2a20">
+                  <rect x="200" y="264" width="120" height="72" rx="18"/>
+                  <circle cx="568" cy="314" r="30"/>
+                </g>
+                <path d="M0 300c90-26 168 14 258-6s154-42 250-22 100 18 132 12" fill="none" stroke="#3c4b55" stroke-width="18" opacity=".55"/>
+                <g fill="none" stroke="#5b4434" stroke-width="6" opacity=".55">
+                  <path d="M192 0v360M330 0v360M486 0v360"/>
+                  <path d="M0 148h640M0 252h640"/>
+                </g>
+                <path d="M486 148v168h-126" fill="none" stroke="#E2672B" stroke-width="2.5" stroke-dasharray="6 7" opacity=".85"/>
+                <g transform="translate(486 148)">
+                  <circle r="26" fill="rgba(226,103,43,.16)"/>
+                  <path d="M0-16c6.6 0 12 5.4 12 12C12 4.6 0 18 0 18S-12 4.6-12-4C-12-10.6-6.6-16 0-16Z" fill="#E2672B"/>
+                  <circle cy="-4" r="4.2" fill="#1B120C"/>
+                </g>
+                <g fill="#D9B38C" opacity=".45" font-family="Inter, sans-serif" font-size="11" letter-spacing="2">
+                  <text x="486" y="124" text-anchor="middle">KILN LANE</text>
+                  <text x="60" y="330">RIVER PATH</text>
+                </g>
+              </svg>
+              <span class="map__label"><span aria-hidden="true"></span>14 Kiln Lane</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================
+       8. FOOTER — bean mode: settle
+       ================================================================ -->
+  <footer class="site-footer" id="footer" data-bean-mode="settle" data-nav-section="contact" aria-label="Site footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="brand" href="#hero" aria-label="Ember &amp; Bean — back to top">
+            <svg class="brand__mark" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-bean"></use></svg>
+            <span class="brand__name">Ember <em>&amp;</em> Bean</span>
+          </a>
+          <p>
+            A small roastery and bar on Kiln Lane. One origin at a time,
+            roasted in the back, poured in the front.
+          </p>
+        </div>
+
+        <div class="site-footer__col">
+          <h3>Explore</h3>
+          <ul class="site-footer__links" role="list">
+            <li><a href="#story">Story</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="site-footer__col">
+          <h3>Visit</h3>
+          <ul class="site-footer__links" role="list">
+            <li><a href="#contact">14 Kiln Lane</a></li>
+            <li><a href="tel:+15035550142">+1 (503) 555-0142</a></li>
+            <li><a href="mailto:hello@emberandbean.example">hello@emberandbean.example</a></li>
+            <li><a href="#contact">Wholesale enquiries</a></li>
+          </ul>
+        </div>
+
+        <div class="site-footer__col">
+          <h3>Follow</h3>
+          <ul class="site-footer__links" role="list">
+            <li>
+              <a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
+                Instagram<span class="sr-note"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.pinterest.com/" rel="noopener noreferrer" target="_blank">
+                Pinterest<span class="sr-note"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
+                Facebook<span class="sr-note"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li><a href="mailto:hello@emberandbean.example">Newsletter</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 Ember &amp; Bean. Roasted with care in Portland, Oregon.</p>
+        <p>Photography via Pexels &middot; <a href="ASSETS_LICENSE.md">Asset licences</a></p>
+        <a class="site-footer__back" href="#hero">
+          Back to top
+          <svg aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-up"></use></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/bean-engine.js" defer></script>
+  <script src="js/scroll-director.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
