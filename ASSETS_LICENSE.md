@@ -88,6 +88,3 @@ attribution.
 - No icon-font or animation library dependencies.
 - No npm packages, build output, or third-party JavaScript.
 
-If you replace any image, add the new file and its licence row here **before**
-shipping. When in doubt, prefer Pexels / Unsplash / Pixabay / CC0 and record the
-source URL.
