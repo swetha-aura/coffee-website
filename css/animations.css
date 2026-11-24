@@ -1,0 +1,164 @@
+/* ==========================================================================
+   Ember & Bean — animations.css
+   Scroll reveals, steam, ring and micro-motion keyframes.
+   Only transform/opacity are animated for UI elements.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Scroll reveals (800ms, 120ms stagger via --reveal-delay)
+   -------------------------------------------------------------------------- */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition:
+    opacity var(--dur-slow) var(--ease) var(--reveal-delay, 0ms),
+    transform var(--dur-slow) var(--ease) var(--reveal-delay, 0ms);
+}
+
+html.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Variant: reveal from the side, used sparingly for figures */
+html.js [data-reveal="left"] {
+  transform: translate3d(-32px, 18px, 0);
+}
+
+html.js [data-reveal="right"] {
+  transform: translate3d(32px, 18px, 0);
+}
+
+html.js [data-reveal="left"].is-visible,
+html.js [data-reveal="right"].is-visible {
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Hero steam
+   -------------------------------------------------------------------------- */
+@keyframes steam-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scaleX(0.85);
+    stroke-dasharray: 0 240;
+  }
+  18% {
+    opacity: 0.5;
+  }
+  45% {
+    opacity: 0.34;
+  }
+  80% {
+    opacity: 0.14;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-42px) scaleX(1.18);
+    stroke-dasharray: 240 240;
+  }
+}
+
+@keyframes ring-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cue-drop {
+  0% {
+    transform: translateY(-14px);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(38px);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Utility motion
+   -------------------------------------------------------------------------- */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+/* Image hover zoom shared by story + gallery */
+.zoom-media img {
+  transition: transform 700ms var(--ease);
+}
+
+.zoom-media:hover img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-soft {
+    animation: none;
+  }
+
+  .zoom-media img {
+    transition: none;
+  }
+
+  .zoom-media:hover img {
+    transform: none;
+  }
+
+  /* Keep the steam readable as a still illustration. */
+  .hero__steam path {
+    animation: none;
+    opacity: 0.34;
+  }
+
+  .hero__ring,
+  .hero__cue-line::after {
+    animation: none;
+  }
+
+  .gallery__media img,
+  .gallery__item:hover .gallery__media img {
+    transform: none !important;
+  }
+
+  .slider__track {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Print safety
+   -------------------------------------------------------------------------- */
+@media print {
+  html.js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
